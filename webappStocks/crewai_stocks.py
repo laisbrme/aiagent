@@ -1,4 +1,5 @@
 # IMPORTAÇÕES DAS LIBS
+
 import json 
 import os
 from datetime import datetime
@@ -13,7 +14,7 @@ from langchain_community.tools import DuckDuckGoSearchResults
 
 import streamlit as st
 
-# CRIANDO YAHOO FINANCE TOOL
+# CRIANDO YAHOO FINANCE TOOL 
 def fetch_stock_price(ticket):
     stock = yf.download(ticket, start="2023-08-08", end="2024-08-08")
     return stock
@@ -139,9 +140,6 @@ crew = Crew(
     max_iter=15
 )
 
-# results = crew.kickoff(inputs={'ticket': 'AAPL'})
-# results['final_output']
-
 with st.sidebar:
     st.header('Enter the Stock to Research')
 
@@ -156,4 +154,3 @@ if submit_button:
 
         st.subheader("Results of research:")
         st.write(results['final_output'])
-        
